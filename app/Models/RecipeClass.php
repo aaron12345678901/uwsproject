@@ -2,31 +2,47 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 class RecipeClass
 {
-    // Method to retrieve all recipe files
+    public $title;
+    public $excerpt;
+    public $body;
+    public $slug;
+
+    public function __construct($title, $excerpt, $body, $slug)
+    {
+        $this->title = $title;
+        $this->excerpt = $excerpt;
+        $this->body = $body;
+        $this->slug = $slug;
+    }
+
+    // Method to retrieve all recipe files and return a collection
     public static function all()
     {
         $files = File::files(resource_path("recipes"));
 
-        // Map over the files and return their contents
-        return array_map(function($file) {
-            return file_get_contents($file);
-        }, $files);
+        return collect($files)->map(function ($file) {
+            $document = YamlFrontMatter::parseFile($file);
+
+            return new RecipeClass(
+                $document->title,
+                $document->excerpt,
+                $document->body(),
+                $document->slug
+            );
+        });
     }
 
     // Method to find a specific recipe by slug
     public static function find($slug)
     {
-        $path = resource_path("recipes/{$slug}.html");
+        $recipes = static::all();
 
-        if (!file_exists($path)) {
-            throw new ModelNotFoundException();
-        }
-
-        return cache()->remember("recipe.{$slug}", 1200, fn() => file_get_contents($path));
+        // Use the firstWhere method to find the recipe by slug
+        return $recipes->firstWhere('slug', $slug);
     }
 }

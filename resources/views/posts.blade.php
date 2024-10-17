@@ -11,14 +11,22 @@
 
     <?php foreach ($posts as $post) : ?>
         <article>
-            <?= $post; ?>
+          <h1> 
+            
+            <a href="/posts/<?= $post->slug; ?>">
+            
+            
+            <?= $post->title; ?> 
+        
+        </a> 
+    
+    </h1>
+          <div>
+            <?= $post->excerpt?>
+         </div>
         </article>
     <?php endforeach; ?>
 
-  
-    <h1><a href="/post/my-first-post">First</a></h1>
-    <p>Sample description.</p>
-   
 
 </div>
 </body>

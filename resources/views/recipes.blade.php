@@ -8,13 +8,20 @@
 </head>
 <body>
 <div class="main">
-    <?php foreach ($recipes as $recipe) : ?>
+    @foreach ($recipes as $recipe)
         <article>
-            <?= $recipe; ?>
+            <h1>
+                <a href="/recipes/{{ $recipe->slug }}">
+                    {{ $recipe->title }}
+                </a>
+            </h1>
+            <div>
+                {{ $recipe->excerpt }}
+            </div>
         </article>
-    <?php endforeach; ?>
+    @endforeach
 
-    <h1><a href="/">First</a></h1>
+    <h1><a href="/">home</a></h1>
     <p>go back</p>
 </div>
 </body>
