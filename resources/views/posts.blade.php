@@ -16,7 +16,7 @@
 
 
   <article>
-    <h1>  <h1><a href="/post/my-second-post"> second</a> </h1>
+    <h1>  <a href="/post/my-second-post"> second</a> 
     </h1>
   </article>
 </div>
