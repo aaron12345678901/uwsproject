@@ -1,42 +1,52 @@
 <?php
-
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Models\RecipeClass;
 
-Route::get('/', function () {
-    return view('home');
-});
-
-//////////////////////////test build
-
-Route::get('post/{post}', function ($post) {
-    // Construct the path to the post file
-    $path = __DIR__ . "/../resources/posts/{$post}.html";
-
-    
-// Check if the file exists
-if (!file_exists($path)) {
-   return redirect('/');
-}
-
-    // Get the contents of the post file
-    $content = file_get_contents($path);
-
-    // Return the view with the post content
-    return view('post', [
-        'post' => $content
-    ]);
-})->where('post','[A-z_\-]+');
 
 //////////////////////////test build
 
 
+// Route::get('/', function () {
+//     $posts = Post::all();
+
+//     return view('posts', [
+//         'posts' => $posts
+//     ]);
+// });
+
+
+// Route::get('post/{post}', function ($slug) {
+//     try {
+//         $post = Post::find($slug);
+
+//         return view('post', [
+//             'post' => $post
+//         ]);
+//     } catch (ModelNotFoundException $e) {
+//         return redirect('/')->withErrors(['message' => 'Post not found']);
+//     }
+// })->where('post', '[A-z_\-]+');
 
 
 
 
 
 
-//////
+
+
+
+//////////////////////////test build
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,34 +58,36 @@ if (!file_exists($path)) {
 // Define a route that responds to GET requests for 'recipes/{recipe}'
 // {recipe} is a dynamic parameter that will be passed to the closure function
 
+// Route to display the home page with all posts
+Route::get('/', function () {
+    // Fetch all posts
+    $posts = Post::all();
 
-Route::get('recipes/{recipe}', function ($recipe) {
+    return view('home', [
+        'posts' => $posts // Pass the posts to the 'home' view
+    ]);
+});
 
-    // Construct the file path to the corresponding HTML file in the resources/posts directory
-    // The file name is based on the value of the {recipe} parameter
-
-
-    $path = __DIR__ . "/../resources/posts/{$recipe}.html";
-
-    // Check if the file exists at the constructed path
-    // If the file doesn't exist, redirect the user to the homepage ('/')
-
-
-    if (!file_exists($path)) {
-        return redirect('/');
-    }
-
-    // If the file exists, retrieve its content using file_get_contents
-
-    $content = file_get_contents($path);
-
-    // Return a view called 'recipes', passing the file content as a variable named 'recipes'
-    // This variable can then be accessed in the Blade view to display the content
+// Route to display all recipes
+Route::get('recipes', function () {
+    // Fetch all recipes
+    $recipes = RecipeClass::all();
 
     return view('recipes', [
-        'recipes' => $content
+        'recipes' => $recipes // Pass all recipes to the 'recipes' view
     ]);
+});
 
-// Add a constraint to the route parameter {recipe} to only accept alphabetic characters (A-Z) and underscores or hyphens
+// Additional route for viewing a specific post
+Route::get('post/{post}', function ($slug) {
+    try {
+        // Attempt to find the post by slug
+        $post = Post::find($slug);
 
-})->where('recipe', '[A-z_\-]+');
+        return view('post', [
+            'post' => $post // Pass the post to the 'post' view
+        ]);
+    } catch (ModelNotFoundException $e) {
+        return redirect('/')->withErrors(['message' => 'Post not found']);
+    }
+})->where('post', '[A-z_\-]+');

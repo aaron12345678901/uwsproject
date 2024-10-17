@@ -57,7 +57,13 @@
         </div>
     </form>
 </div>
-<h1><a href="/post/my-first-recipe"> first</a> </h1>
+
+
+
+<h1><a href="recipes"> first</a> </h1>
+
+
+
 </div>
 </body>
 </html>
