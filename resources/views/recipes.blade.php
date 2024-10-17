@@ -14,8 +14,8 @@
         </article>
     <?php endforeach; ?>
 
-    <h1><a href="/post/my-first-post">First</a></h1>
-    <p>Sample description.</p>
+    <h1><a href="/">First</a></h1>
+    <p>go back</p>
 </div>
 </body>
 </html>
