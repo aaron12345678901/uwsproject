@@ -1,13 +1,29 @@
+@extends('layout')
+
+@section('content')
+
+
 <article>
   <h1>title</h1>
-  <h1><?= e($post->title); ?></h1> <!-- Display the title -->
+  <h1>{!!$post->title!!}</h1> <!-- Display the title -->
+
+
   <h1>excerpt</h1>
-  <p><?= e($post->excerpt); ?></p> <!-- Display the excerpt -->
+  <p>{!!$post->excerpt!!}</p> <!-- Display the excerpt -->
+     
+
   <h1>date</h1>
-  <time><?= e($post->date); ?></time> <!-- Display the date -->
+
+ {!!$post->date!!} <!-- Display the date -->
+          
+
   <div><h1>body</h1>
-      <?= $post->body; ?> <!-- Display the body of the post -->
+    <!-- Display the body of the post -->
+      {!! $post->body !!}
+      
   </div>
 </article>
 
 <a href="/">go back</a>
+
+@endsection

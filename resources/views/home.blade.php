@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,10 +8,14 @@
 </head>
 <body>
 
+
+
 <div class="header-main">
         <div class="logo"><img src="{{ asset('images/logo.png') }}" alt="Logo of Recipe Site"></div>
         <h1>Recipe</h1>
 </div>
+
+
 
 <div class="welcome-text">
     <h1>welcome</h1>

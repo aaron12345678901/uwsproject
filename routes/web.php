@@ -3,7 +3,7 @@
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\Models\RecipeClass;
+use App\Models\Recipe;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Illuminate\Support\Facades\File;
 
@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\File;
 //     ]);
 // });
 
-// Route::get('posts/{post}', function ($slug) {
-//     $post = Post::find($slug);
+// Route::get('posts/{post}', function ($id) {
+//     $post = Post::find($id);
 
 //     if (! $post) {
 //         abort(404, 'Post not found');
@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\File;
 //     return view('post', [
 //         'post' => $post
 //     ]);
-// })->where('post', '[A-z_\-]+');
+// });
 
 
 //////////////////////////test build
@@ -48,18 +48,21 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 // Route to display all recipes
 Route::get('/recipes', function () {
-    $recipes = RecipeClass::all();
+
+    $recipes = Recipe::all();
 
     return view('recipes', [
         'recipes' => $recipes
     ]);
 });
 
+
 // Route to display a single recipe by slug
-Route::get('recipes/{recipe}', function ($slug) {
-    $recipe = RecipeClass::find($slug);
+Route::get('recipes/{recipe}', function ($id) {
+    $recipe = Recipe::find($id);
 
     if (! $recipe) {
         abort(404, 'Recipe not found');
@@ -68,4 +71,4 @@ Route::get('recipes/{recipe}', function ($slug) {
     return view('recipe', [
         'recipe' => $recipe
     ]);
-})->where('recipe', '[A-z_\-]+');
+});
