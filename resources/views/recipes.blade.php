@@ -14,6 +14,8 @@
                         {{ $recipe->title }}
                     </a>
                 </h1>
+
+                <p><a href="/categories/{{$recipe->Category->slug}}">{{ $recipe->Category->name }}</a></p>
                 <div>
                     {{ $recipe->excerpt }}
                 </div>

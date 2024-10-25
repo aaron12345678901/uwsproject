@@ -14,6 +14,8 @@
         </a> 
     
     </h1>
+
+    <p><a href="/categories/{{$post->Category->slug}}">{{ $post->Category->name }}</a></p>
           <div>
            
              {{ $post->excerpt}}

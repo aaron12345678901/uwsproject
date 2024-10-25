@@ -7,6 +7,7 @@
   <h1>title</h1>
   <h1>{!!$post->title!!}</h1> <!-- Display the title -->
 
+  <p><a href="/categories/{{$post->Category->slug}}">{{ $post->Category->name }}</a></p>
 
   <h1>excerpt</h1>
   <p>{!!$post->excerpt!!}</p> <!-- Display the excerpt -->
