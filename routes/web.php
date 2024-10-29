@@ -3,6 +3,7 @@
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Recipe;
+use App\Models\User;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -12,37 +13,38 @@ use Illuminate\Support\Facades\File;
 //////////////////////////test build
 
 
-Route::get('/', function () {
-    $posts = Post::all();
-
-    return view('posts', [
-        'posts' => $posts
-    ]);
-});
-
-Route::get('posts/{post}', function (Post $post) {
-    
-
-    if (! $post) {
-        abort(404, 'Post not found');
-    }
-
-    return view('post', [
-        'post' => $post
-    ]);
-});
 
 
+// Route::get('/', function () {
+   
+//     return view('posts', [
+//         'posts' => Post::latest()->with('category','author')->get()
+//     ]);
+// });
+
+// Route::get('posts/{post}', function (Post $post) {
+//     if (!$post) {
+//         abort(404, 'Post not found');
+//     }
+//     return view('post', [
+//         'post' => $post
+//     ]);
+// });
+
+// Route::get('categories/{category:slug}', function (Category $category) {
+
+//     return view('posts', [
+//         'posts' => $category->posts->load(['category','author'])
+//     ]);
+// });
 
 
 
-Route::get('categories/{category:slug}', function (Category $category) {
-    
-    return view('posts', [
-        'posts' => $category->posts
-    ]);
-
-});
+// Route::get('authors/{author}', function (User $author) {  // Capitalize 'User'
+//     return view('posts', [
+//         'posts' => $author->posts->load(['category','author'])
+//     ]);
+// });
 
 
 //////////////////////////test build
@@ -57,42 +59,45 @@ Route::get('categories/{category:slug}', function (Category $category) {
 
 
 
-// // Route to display the home page
-// Route::get('/', function () {
-//     return view('home');
-// });
+// Route to display the home page
+Route::get('/', function () {
+    return view('home');
+});
+
+// Route to display all recipes with categories
+Route::get('/recipes', function () {
+    // Eager load categories with recipes to reduce queries
+    $recipes = Recipe::latest()->with('category','author')->get();
+
+    return view('recipes', [
+        'recipes' => $recipes
+    ]);
+});
+
+// Route to display a single recipe
+Route::get('recipes/{recipe}', function (Recipe $recipe) {
+    if (!$recipe) {
+        abort(404, 'Recipe not found');
+    }
+
+    return view('recipe', [
+        'recipe' => $recipe
+    ]);
+});
+
+// Route to display all recipes in a category
+Route::get('categories/{category:slug}', function (Category $category) {
+    // Load all recipes under the selected category with category details
+    $recipes = $category->recipes()->with('category')->get();
+
+    return view('recipes', [
+        'recipes' => $recipes
+    ]);
+});
 
 
-// // Route to display all recipes
-// Route::get('/recipes', function () {
-
-//     $recipes = Recipe::all();
-
-//     return view('recipes', [
-//         'recipes' => $recipes
-//     ]);
-// });
-
-
-// // Route to display a single recipe 
-// Route::get('recipes/{recipe}', function (recipe $recipe) {
-   
-
-//     if (! $recipe) {
-//         abort(404, 'Recipe not found');
-//     }
-
-//     return view('recipe', [
-//         'recipe' => $recipe
-//     ]);
-// });
-
-
-// // // Route to display all in a category
-// Route::get('categories/{category:slug}', function (Category $category) {
-    
-//     return view('recipes', [
-//         'recipes' => $category->recipes
-//     ]);
-
-// });
+Route::get('authors/{author}', function (User $author) {  // Capitalize 'User'
+    return view('recipes', [
+        'recipes' => $author->recipes
+    ]);
+});

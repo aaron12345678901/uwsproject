@@ -4,6 +4,9 @@
 
 
 <article>
+  <p>author by <a href="/authors/{{ $post->author->id }}">{{ $post->author->name }}</a></p>
+
+
   <h1>title</h1>
   <h1>{!!$post->title!!}</h1> <!-- Display the title -->
 
