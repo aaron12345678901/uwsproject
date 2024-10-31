@@ -1,68 +1,44 @@
+
+
 <?php
 
-use App\Models\Post;
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+
+
 use App\Models\Category;
 use App\Models\Recipe;
 use App\Models\User;
 
-use Illuminate\Support\Facades\Route;
+
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Illuminate\Support\Facades\File;
 
-//////////////////////////test build
-
-
-
-
-// Route::get('/', function () {
-   
-//     return view('posts', [
-//         'posts' => Post::latest()->with('category','author')->get()
-//     ]);
-// });
-
-// Route::get('posts/{post}', function (Post $post) {
-//     if (!$post) {
-//         abort(404, 'Post not found');
-//     }
-//     return view('post', [
-//         'post' => $post
-//     ]);
-// });
-
-// Route::get('categories/{category:slug}', function (Category $category) {
-
-//     return view('posts', [
-//         'posts' => $category->posts->load(['category','author'])
-//     ]);
-// });
-
-
-
-// Route::get('authors/{author}', function (User $author) {  // Capitalize 'User'
-//     return view('posts', [
-//         'posts' => $author->posts->load(['category','author'])
-//     ]);
-// });
-
-
-//////////////////////////test build
-
-
-////////////////recipe site 
-
-// Define a route that responds to GET requests for 'recipes/{recipe}'
-// {recipe} is a dynamic parameter that will be passed to the closure function
-
-
-
-
-
-// Route to display the home page
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    // Fetch the recipes to pass to the view
+    $recipes = Recipe::latest()->with('category', 'author')->get();
+
+    return view('dashboard', [
+        'recipes' => $recipes
+    ]);
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
+
+
+
 
 // Route to display all recipes with categories
 Route::get('/recipes', function () {
