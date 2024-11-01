@@ -78,6 +78,9 @@ Route::get('authors/{author}', function (User $author) {  // Capitalize 'User'
     ]);
 });
 
+Route::get('/admin', function () {
+    return view('admin'); // Create an 'admin.blade.php' view
+})->middleware(['auth', 'verified']);
 
 
 Route::get('/dashboard/create', [RecipeController::class, 'create'])->middleware('auth')->name('recipes.create');
