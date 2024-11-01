@@ -8,17 +8,28 @@
     <div class="py-12 bg-gradient-to-r from-purple-400 via-pink-300 to-red-300">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white shadow-lg sm:rounded-lg p-8">
-                
+
                 {{-- Dashboard content --}}
                 <div class="mb-6">
                     <h3 class="text-4xl font-bold text-gray-800">Latest Recipes</h3>
                     <p class="text-gray-600">Discover the newest additions below</p>
                 </div>
 
+                <div class="mt-8 text-center">
+                    <a href="{{ route('recipes.create') }}">Create Recipe</a>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @foreach ($recipes as $recipe)
-                        <div class="bg-white p-6 rounded-lg shadow-md transition-transform duration-300 hover:shadow-xl hover:scale-105">
-                            <article class="space-y-3">
+                        <div class="bg-white p-6 rounded-lg shadow-md transition-transform duration-300 hover:shadow-xl hover:scale-105 flex items-start">
+                            <div class="flex-shrink-0 w-24 h-24 mr-4"> <!-- Fixed width for image -->
+                                @if ($recipe->image)
+                                    <img src="{{ asset('storage/' . $recipe->image) }}" alt="{{ $recipe->title }}" class="object-cover w-full h-full rounded">
+                                @else
+                                    <img src="{{ asset('images/logo.png') }}" alt="Fallback logo" class="object-cover w-full h-full rounded">
+                                @endif
+                            </div>
+                            <article class="space-y-3 flex-grow">
                                 <p class="text-sm text-gray-600">by 
                                     <a href="/authors/{{ $recipe->author->id }}" class="text-red-500 font-semibold hover:text-red-700 transition-colors">
                                         {{ $recipe->author->name }}

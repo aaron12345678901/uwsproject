@@ -12,7 +12,7 @@ class Recipe extends Model
 
     protected $guarded = [];
 
-    protected $fillable = ['title', 'excerpt', 'body', 'image','category_id'];
+    protected $fillable = ['title', 'excerpt', 'body', 'image','category_id', 'user_id'];
 
     public function category()
     {

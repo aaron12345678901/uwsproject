@@ -4,7 +4,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RecipeController;
 
 use App\Models\Category;
 use App\Models\Recipe;
@@ -77,3 +77,8 @@ Route::get('authors/{author}', function (User $author) {  // Capitalize 'User'
         'recipes' => $author->recipes
     ]);
 });
+
+
+
+Route::get('/dashboard/create', [RecipeController::class, 'create'])->middleware('auth')->name('recipes.create');
+Route::post('/dashboard/recipes', [RecipeController::class, 'store'])->middleware('auth')->name('recipes.store');
