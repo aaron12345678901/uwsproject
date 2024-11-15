@@ -8,14 +8,21 @@ use Illuminate\Http\Request;
 
 class RecipeController extends Controller
 {
+    /**
+     * Show the form for creating a new recipe.
+     */
     public function create()
     {
         $categories = Category::all(); // Load categories for dropdown
         return view('create', compact('categories'));
     }
 
+    /**
+     * Store a newly created recipe in storage.
+     */
     public function store(Request $request)
     {
+        // Validate incoming request data
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'excerpt' => 'required|string|max:255',
@@ -24,16 +31,20 @@ class RecipeController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image
         ]);
     
-        $validated['user_id'] = auth()->id(); // Attach the logged-in user as author
+        // Attach the logged-in user as author
+        $validated['user_id'] = auth()->id(); 
     
         // Handle the image upload
         if ($request->hasFile('image')) {
+            // Store image and get the path
             $imagePath = $request->file('image')->store('images', 'public'); // Store image
             $validated['image'] = $imagePath; // Store path in validated data
         }
     
+        // Create the recipe in the database
         Recipe::create($validated);
     
+        // Redirect back to the dashboard with a success message
         return redirect()->route('dashboard')->with('success', 'Recipe added successfully!');
     }
 }

@@ -1,1 +1,5 @@
-<a {{ $attributes->merge(['class' => 'block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out']) }}>{{ $slot }}</a>
+{{-- <a {{ $attributes->merge(['style' => 'display: block; width: 100%; padding: 0.5rem 1rem; text-align: left; font-size: 0.875rem; line-height: 1.25; color: #4a5568; transition: background-color 0.15s ease-in-out;']) }} 
+    onmouseover="this.style.backgroundColor='#f7fafc';" 
+    onmouseout="this.style.backgroundColor='transparent';">
+     {{ $slot }}
+ </a> --}}

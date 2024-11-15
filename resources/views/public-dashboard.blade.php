@@ -13,24 +13,18 @@
                 <p class="recipes-subtitle">Discover the newest additions below</p>
             </div>
 
-            <!-- Button to navigate to the recipe creation page -->
-            <div class="create-recipe-button">
-                <a href="{{ route('recipes.create') }}" class="button">Create Recipe</a>
-            </div>
-
             <!-- Grid layout for displaying recipe cards -->
             <div class="recipes-grid">
                 <!-- Loop through each recipe to display its information -->
                 @foreach ($recipes as $recipe)
                     <div class="recipe-card">
                         <div class="recipe-image-container">
-                                   <!-- Display the recipe image if it exists; otherwise, show a fallback logo -->
-        @if ($recipe->image)
-            <img src="{{ asset('storage/images/' . basename($recipe->image)) }}" alt="{{ $recipe->title }}" class="recipe-image">
-        @else
-            <img src="{{ asset('images/logo.png') }}" alt="Fallback logo" class="recipe-image">
-        @endif
-
+                            <!-- Display the recipe image if it exists; otherwise, show a fallback logo -->
+                            @if ($recipe->image)
+                                <img src="{{ asset('storage/' . $recipe->image) }}" alt="{{ $recipe->title }}" class="recipe-image">
+                            @else
+                                <img src="{{ asset('images/logo.png') }}" alt="Fallback logo" class="recipe-image">
+                            @endif
                         </div>
                         <article class="recipe-details">
                             <!-- Display the author information with a link to their profile -->

@@ -1,50 +1,50 @@
+@extends('layout') <!-- Extends the main layout of the application -->
 
-@extends('layout')
+<!-- Link to external CSS file for styling -->
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-@section('content')
+@section('content') <!-- Begin the content section -->
 
-<div class="max-w-5xl mx-auto bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-8 rounded-lg shadow-lg mt-12">
-    <article class="bg-white p-8 rounded-lg shadow-md space-y-6">
+<div class="container"> <!-- Main container for the recipe card content -->
+    <article class="recipe-card"> <!-- Recipe card styling for visual appeal -->
         
         {{-- Author Information --}}
-        <p class="text-sm text-pink-700">Author: 
-            <a href="/authors/{{ $recipe->author->id }}" class="text-red-600 font-semibold hover:text-purple-600 transition-colors">
+        <p class="author-info">Author: 
+            <a href="/authors/{{ $recipe->author->id }}" class="author-link">
                 {{ $recipe->author->name }}
             </a>
         </p>
 
         {{-- Recipe Title --}}
-        <h1 class="text-4xl font-bold text-purple-800">
-            Recipe Title
-        </h1>
-        <h2 class="text-3xl font-semibold text-pink-800">
-            {!! $recipe->title !!}
+        <h1 class="recipe-title">Recipe Title</h1>
+        <h2 class="recipe-name">
+            {!! $recipe->title !!} <!-- Display recipe title, allowing for any HTML content -->
         </h2>
 
         {{-- Recipe Excerpt --}}
-        <h3 class="text-2xl font-semibold text-purple-700 mt-6">Recipe Excerpt</h3>
-        <p class="text-gray-700 text-lg">{{ $recipe->excerpt }}</p>
+        <h3 class="section-title">Recipe Excerpt</h3>
+        <p class="recipe-excerpt">{{ $recipe->excerpt }}</p> <!-- Display recipe summary -->
 
         {{-- Category --}}
-        <h3 class="text-2xl font-semibold text-purple-700 mt-6">Category</h3>
+        <h3 class="section-title">Category</h3>
         <p>
-            <a href="/categories/{{ $recipe->category->slug }}" class="text-pink-700 font-semibold hover:text-red-600 transition-colors">
-                {{ $recipe->category->name }}
+            <a href="/categories/{{ $recipe->category->slug }}" class="category-link">
+                {{ $recipe->category->name }} <!-- Link to the recipe category page -->
             </a>
         </p>
 
         {{-- Recipe Body --}}
-        <h3 class="text-2xl font-semibold text-purple-700 mt-6">Recipe Details</h3>
-        <div class="text-gray-800 text-lg space-y-4">{!! $recipe->body !!}</div>
+        <h3 class="section-title">Recipe Details</h3>
+        <div class="recipe-body">{!! $recipe->body !!}</div> <!-- Display full recipe details, allowing HTML content -->
 
         {{-- Back Link --}}
-        <div class="mt-8">
-            <a href="/" class="text-lg text-pink-700 font-semibold hover:text-purple-700 transition-colors">
-                ← Go back
+        <div class="back-link">
+            <a href="/" class="back-link-text">
+                ← Go back <!-- Link to return to the homepage -->
             </a>
         </div>
 
     </article>
 </div>
 
-@endsection
+@endsection <!-- End the content section -->

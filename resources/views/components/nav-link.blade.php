@@ -2,10 +2,16 @@
 
 @php
 $classes = ($active ?? false)
-            ? 'inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out'
-            : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out';
+            ? 'display: inline-flex; align-items: center; padding: 0.25rem 0.5rem; border-bottom: 2px solid #4f46e5; font-size: 0.875rem; font-weight: 500; color: #111827; text-decoration: none; transition: all 0.15s ease-in-out;'
+            : 'display: inline-flex; align-items: center; padding: 0.25rem 0.5rem; border-bottom: 2px solid transparent; font-size: 0.875rem; font-weight: 500; color: #6b7280; text-decoration: none; transition: all 0.15s ease-in-out;';
+
+$hoverClasses = 'color: #374151; border-color: #d1d5db;'; // Styles for hover and focus states
 @endphp
 
-<a {{ $attributes->merge(['class' => $classes]) }}>
+<a {{ $attributes->merge(['style' => $classes]) }}
+   onmouseover="this.style.color='{{ substr($hoverClasses, 6, 7) }}'; this.style.borderColor='{{ substr($hoverClasses, 18, 7) }}';"
+   onmouseout="this.style.color='{{ ($active ?? false) ? '#111827' : '#6b7280' }}'; this.style.borderColor='transparent';"
+   onfocus="this.style.color='{{ substr($hoverClasses, 6, 7) }}'; this.style.borderColor='{{ substr($hoverClasses, 18, 7) }}';"
+   onblur="this.style.color='{{ ($active ?? false) ? '#111827' : '#6b7280' }}'; this.style.borderColor='transparent';">
     {{ $slot }}
 </a>

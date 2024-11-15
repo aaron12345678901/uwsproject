@@ -6,11 +6,11 @@
 
 @php
 $maxWidth = [
-    'sm' => 'sm:max-w-sm',
-    'md' => 'sm:max-w-md',
-    'lg' => 'sm:max-w-lg',
-    'xl' => 'sm:max-w-xl',
-    '2xl' => 'sm:max-w-2xl',
+    'sm' => 'max-width: 20rem;',  // Corresponds to sm:max-w-sm
+    'md' => 'max-width: 28rem;',  // Corresponds to sm:max-w-md
+    'lg' => 'max-width: 32rem;',  // Corresponds to sm:max-w-lg
+    'xl' => 'max-width: 36rem;',  // Corresponds to sm:max-w-xl
+    '2xl' => 'max-width: 42rem;', // Corresponds to sm:max-w-2xl
 ][$maxWidth];
 @endphp
 
@@ -60,18 +60,19 @@ $maxWidth = [
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
     >
-        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        <div style="position: absolute; inset: 0; background-color: rgba(75, 85, 99, 0.75);"></div>
     </div>
 
     <div
         x-show="show"
-        class="mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full {{ $maxWidth }} sm:mx-auto"
+        style="margin-bottom: 1.5rem; background-color: white; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); transform: translateY(0); transition: all 0.3s ease-out;"
         x-transition:enter="ease-out duration-300"
-        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+        x-transition:enter-start="opacity-0; transform: translateY(1rem) scale(0.95);"
+        x-transition:enter-end="opacity-100; transform: translateY(0) scale(1);"
         x-transition:leave="ease-in duration-200"
-        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        x-transition:leave-start="opacity-100; transform: translateY(0) scale(1);"
+        x-transition:leave-end="opacity-0; transform: translateY(1rem) scale(0.95);"
+        class="mb-6 sm:w-full {{ $maxWidth }} sm:mx-auto"
     >
         {{ $slot }}
     </div>

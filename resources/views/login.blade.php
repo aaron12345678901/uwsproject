@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <!-- Set character encoding and viewport settings for mobile responsiveness -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    
+    <!-- Link to the app's CSS file for styling -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body class="antialiased bg-gradient-to-br from-purple-400 to-red-300 flex items-center justify-center min-h-screen">
+<body class="bg-gradient"> <!-- Body with background gradient for aesthetic effect -->
+    <div class="login-wrapper"> <!-- Wrapper to center the login content on the page -->
+        <div class="login-container"> <!-- Container for the login form and related content -->
+            <h1 class="title">Welcome Back!</h1>
+            <p class="subtitle">Please log in to your account.</p>
 
-    <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
-        <h1 class="text-4xl font-bold text-gray-800 text-center mb-6">Login</h1>
+            <!-- Login form with POST method to handle login submission -->
+            <form method="POST" action="{{ route('login') }}">
+                @csrf <!-- CSRF token for security -->
+                
+                <!-- Email input field -->
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required autofocus placeholder="you@example.com">
+                </div>
+                
+                <!-- Password input field -->
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" required placeholder="••••••••">
+                </div>
+                
+                <!-- Login button to submit the form -->
+                <div class="button-group">
+                    <button type="submit" class="submit-button">Log In</button>
+                </div>
+            </form>
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <div class="mb-4">
-                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" name="email" required autofocus class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-purple-500" placeholder="you@example.com">
+            <!-- Link to registration page for users who don't have an account -->
+            <div class="register-link">
+                <p>Don't have an account? <a href="{{ route('register') }}">Register</a></p>
             </div>
-            <div class="mb-6">
-                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" name="password" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-purple-500" placeholder="••••••••">
-            </div>
-            <div>
-                <button type="submit" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors">
-                    Log in
-                </button>
-            </div>
-        </form>
-
-        <div class="mt-4 text-center">
-            <a href="{{ route('register') }}" class="text-blue-600 hover:text-blue-700 transition-colors">
-                Don't have an account? Register
-            </a>
         </div>
     </div>
-
 </body>
 </html>
