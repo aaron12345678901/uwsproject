@@ -33,8 +33,8 @@
 
     <!-- Action Buttons Section -->
     <div class="action-buttons">
-        <a href="{{ route('login') }}" class="button button-login">Log In</a> <!-- Login button -->
-        <a href="{{ route('register') }}" class="button button-register">Register</a> <!-- Register button -->
+        <a href="{{ route('login') }}" class="button button-login">Log In</a> 
+        <a href="{{ route('register') }}" class="button button-register">Register</a> 
     </div>
 
     <div class="normal-user-button">

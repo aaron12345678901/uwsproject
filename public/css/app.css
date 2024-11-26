@@ -1,13 +1,10 @@
-
-
-/* home page  */
-
+/* Home Page */
 
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right, #6a82fb, #fc5c7d); 
-    color: #333; 
+    background: linear-gradient(to bottom right, #F2E2CE, #F29C50);
+    color: #8C6F56;
 }
 
 /* Header Styles */
@@ -16,88 +13,80 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.9); 
+    background-color: rgba(242, 226, 206, 0.9); /* Light Beige */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px); 
+    backdrop-filter: blur(5px);
 }
 
 .logo img {
-    width: 4rem; 
-    height: 4rem; 
-    margin-right: 1rem; 
+    width: 4rem;
+    height: 4rem;
+    margin-right: 1rem;
 }
 
 /* Welcome Text Styles */
 .welcome-text {
     max-width: 600px;
-    margin: 4rem auto; 
+    margin: 4rem auto;
     padding: 2rem;
-    background-color: white; 
+    background-color: #F2E2CE; /* Light Beige */
     border-radius: 0.5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .welcome-text h1 {
-    font-size: 2.5rem; 
-    color: #d5006d; 
-    margin-bottom: 1rem; 
+    font-size: 2.5rem;
+    color: #F29C50; /* Orange */
+    margin-bottom: 1rem;
 }
 
 .welcome-text p {
-    font-size: 1.125rem; 
-    line-height: 1.6; 
-    color: #666; 
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #8C6F56; /* Brown */
 }
 
 /* Action Buttons Styles */
 .action-buttons {
-    margin-top: 3rem; 
-    display: flex; 
-    justify-content: center; 
-    gap: 1.5rem; 
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
 }
 
 .button {
-    padding: 0.75rem 1.5rem; 
-    font-size: 1rem; 
-    font-weight: bold; 
-    border-radius: 9999px; 
-    transition: background-color 0.3s, transform 0.2s; 
-    text-align: center; 
-    color: white; 
-    text-decoration: none; 
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 9999px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+    color: white;
+    text-decoration: none;
 }
 
 .button-login {
-    background-color: #1e90ff;
+    background-color: #F29C50; /* Orange */
 }
 
 .button-login:hover {
-    background-color: #007bff;
-    transform: translateY(-2px); 
+    background-color: #E08A46; /* Slightly darker orange */
+    transform: translateY(-2px);
 }
 
 .button-register {
-    background-color: #28a745; 
+    background-color: #8C6F56; /* Brown */
 }
 
 .button-register:hover {
-    background-color: #218838;
-    transform: translateY(-2px); 
+    background-color: #7A5E4C; /* Slightly darker brown */
+    transform: translateY(-2px);
 }
 
-
-/* log in */
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
+/* Login Styles */
 .bg-gradient {
-    background: linear-gradient(to bottom right, #6a82fb, #fc5c7d);
+    background: linear-gradient(to bottom right, #F2E2CE, #F29C50);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,77 +100,76 @@ body {
     align-items: center;
     width: 100%;
     padding: 20px;
-    
 }
 
 .login-container {
-    background: white;
-    border-radius: 12px; 
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15); 
+    background: #F2E2CE; /* Light Beige */
+    border-radius: 12px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
     padding: 40px;
     max-width: 400px;
     width: 100%;
-    text-align: center; 
-    border: 4px solid black;
+    text-align: center;
+    border: 4px solid #8C6F56; /* Brown */
 }
 
 .title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #333;
+    color: #8C6F56; /* Brown */
     margin-bottom: 10px;
 }
 
 .subtitle {
     font-size: 1.2rem;
-    color: #777;
+    color: #BF9D7E; /* Light Brown */
     margin-bottom: 20px;
 }
 
 .input-group {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .input-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-    color: #555;
+    color: #8C6F56; /* Brown */
 }
 
 .input-group input {
     width: 100%;
-    padding: 12px; 
-    border: 1px solid #ccc;
+    padding: 12px;
+    border: 1px solid #BF9D7E; /* Light Brown */
     border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.3s; 
+    transition: border-color 0.3s;
 }
 
 .input-group input:focus {
     outline: none;
-    border-color: #6a82fb;
+    border-color: #F29C50; /* Orange */
 }
 
 .button-group {
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 
 .submit-button {
     width: 100%;
-    padding: 14px; 
-    background-color: #6a82fb;
+    padding: 14px;
+    background-color: #F29C50; /* Orange */
     color: white;
     font-weight: bold;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s; 
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .submit-button:hover {
-    background-color: #5a73e0;
-    transform: translateY(-2px); 
+    background-color: #E08A46; /* Slightly darker orange */
+    transform: translateY(-2px);
 }
 
 .register-link {
@@ -189,7 +177,7 @@ body {
 }
 
 .register-link a {
-    color: #6a82fb;
+    color: #F29C50; /* Orange */
     text-decoration: none;
 }
 
@@ -197,23 +185,23 @@ body {
     text-decoration: underline;
 }
 
-.normal-user-button{
+/* Normal User Button */
+.normal-user-button {
     margin-top: 50px;
 }
 
 .normal-user-button button {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #f44336;
+    background-color: #8C6F56; /* Brown */
     color: white;
     font-weight: bold;
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.2s;
 }
 
-
 .normal-user-button button:hover {
-    background-color: #e53935;
+    background-color: #7A5E4C; /* Slightly darker brown */
     transform: translateY(-2px);
 }
 

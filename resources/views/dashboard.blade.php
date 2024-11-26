@@ -28,7 +28,7 @@
         @if ($recipe->image)
             <img src="{{ asset('storage/images/' . basename($recipe->image)) }}" alt="{{ $recipe->title }}" class="recipe-image">
         @else
-            <img src="{{ asset('images/logo.png') }}" alt="Fallback logo" class="recipe-image">
+           <img src="{{ asset('images/logo.png') }}" alt="Fallback logo" class="recipe-image">
         @endif
 
                         </div>
