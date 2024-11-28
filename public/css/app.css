@@ -3,7 +3,7 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right, #F2E2CE, #F29C50);
+    background: linear-gradient(to bottom right, #EBD0A5, #F29C50); 
     color: #8C6F56;
 }
 
@@ -13,15 +13,19 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    background-color: rgba(242, 226, 206, 0.9); /* Light Beige */
+    background-color: rgba(242, 226, 206, 0.9); 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
+    width: 100%;
+    text-decoration: underline;
 }
 
 .logo img {
     width: 4rem;
     height: 4rem;
     margin-right: 1rem;
+    border-radius: 25%;
+    border: #1f2937 1px solid;
 }
 
 /* Welcome Text Styles */
@@ -29,22 +33,23 @@ body {
     max-width: 600px;
     margin: 4rem auto;
     padding: 2rem;
-    background-color: #F2E2CE; /* Light Beige */
+    background-color: #EBD0A5; 
     border-radius: 0.5rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
+    border: #1f2937 1px solid;
 }
 
 .welcome-text h1 {
     font-size: 2.5rem;
-    color: #F29C50; /* Orange */
+    color: #F29C50;
     margin-bottom: 1rem;
 }
 
 .welcome-text p {
     font-size: 1.125rem;
     line-height: 1.6;
-    color: #8C6F56; /* Brown */
+    color: #8C6F56; 
 }
 
 /* Action Buttons Styles */
@@ -67,30 +72,34 @@ body {
 }
 
 .button-login {
-    background-color: #F29C50; /* Orange */
+    background-color: #F29C50; 
 }
 
 .button-login:hover {
-    background-color: #E08A46; /* Slightly darker orange */
+    background-color: #E08A46; 
     transform: translateY(-2px);
 }
 
 .button-register {
-    background-color: #8C6F56; /* Brown */
+    background-color: #EBC557; 
 }
 
 .button-register:hover {
-    background-color: #7A5E4C; /* Slightly darker brown */
+    background-color: #EBD757; 
     transform: translateY(-2px);
 }
 
 /* Login Styles */
 .bg-gradient {
-    background: linear-gradient(to bottom right, #F2E2CE, #F29C50);
+    background: linear-gradient(to bottom right, #EBD0A5, #F29C50); 
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     min-height: 100vh;
+  align-items: center;
+}
+
+.bg-gradient p{
+    color: black; 
 }
 
 .login-wrapper {
@@ -103,26 +112,33 @@ body {
 }
 
 .login-container {
-    background: #F2E2CE; /* Light Beige */
+    background: #EBD0A5; 
     border-radius: 12px;
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
     padding: 40px;
     max-width: 400px;
     width: 100%;
     text-align: center;
-    border: 4px solid #8C6F56; /* Brown */
+    border: 4px solid #8C6F56; 
 }
 
 .title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #8C6F56; /* Brown */
-    margin-bottom: 10px;
+    color: #8C6F56; 
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
 }
 
 .subtitle {
     font-size: 1.2rem;
-    color: #BF9D7E; /* Light Brown */
+    color: #BF9D7E; 
     margin-bottom: 20px;
 }
 
@@ -134,13 +150,13 @@ body {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-    color: #8C6F56; /* Brown */
+    color: #8C6F56; 
 }
 
 .input-group input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #BF9D7E; /* Light Brown */
+    border: 1px solid #EBC557; 
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s;
@@ -148,7 +164,7 @@ body {
 
 .input-group input:focus {
     outline: none;
-    border-color: #F29C50; /* Orange */
+    border-color: #F29C50; 
 }
 
 .button-group {
@@ -158,7 +174,7 @@ body {
 .submit-button {
     width: 100%;
     padding: 14px;
-    background-color: #F29C50; /* Orange */
+    background-color: #F29C50; 
     color: white;
     font-weight: bold;
     border: none;
@@ -168,7 +184,7 @@ body {
 }
 
 .submit-button:hover {
-    background-color: #E08A46; /* Slightly darker orange */
+    background-color: #E08A46; 
     transform: translateY(-2px);
 }
 
@@ -177,7 +193,7 @@ body {
 }
 
 .register-link a {
-    color: #F29C50; /* Orange */
+    color: #F29C50; 
     text-decoration: none;
 }
 
@@ -193,7 +209,7 @@ body {
 .normal-user-button button {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #8C6F56; /* Brown */
+    background-color: #8C6F56; 
     color: white;
     font-weight: bold;
     border-radius: 8px;
@@ -201,17 +217,18 @@ body {
 }
 
 .normal-user-button button:hover {
-    background-color: #7A5E4C; /* Slightly darker brown */
+    background-color: #7A5E4C; 
     transform: translateY(-2px);
 }
 
 
+/* //////////////////////////////////////////////////////////////////////////////// */
 
-/* dashboard */
+/* Dashboard */
 
 .dashboard-container {
     padding: 3rem 1rem;
-    background: linear-gradient(to right, #6a82fb, #fc5c7d);
+    background: linear-gradient(to right, #F29C50, #EBC557); 
 }
 
 .dashboard-content {
@@ -226,7 +243,7 @@ body {
 .title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #333;
+    color: #8C6F56; 
 }
 
 .latest-recipes {
@@ -236,11 +253,11 @@ body {
 .recipes-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #333;
+    color: #8C6F56; 
 }
 
 .recipes-subtitle {
-    color: #777;
+    color: #EBD0A5; 
 }
 
 .create-recipe-button {
@@ -251,7 +268,7 @@ body {
 .button {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #f44336;
+    background-color: #F29C50; 
     color: white;
     font-weight: bold;
     border-radius: 8px;
@@ -259,7 +276,7 @@ body {
 }
 
 .button:hover {
-    background-color: #e53935;
+    background-color: #E08A46; 
     transform: translateY(-2px);
 }
 
@@ -270,6 +287,8 @@ body {
 }
 
 .recipe-card {
+    display: flex;
+    flex-direction: column;
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -284,7 +303,6 @@ body {
 
 .recipe-image-container {
     width: 100%;
-    height: 200px;
     margin-bottom: 16px;
 }
 
@@ -303,23 +321,23 @@ body {
 
 .author-info {
     font-size: 0.9rem;
-    color: #555;
+    color: #8C6F56; 
 }
 
 .author-link {
-    color: #f44336;
+    color: #F29C50; 
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .author-link:hover {
-    color: #e53935;
+    color: #E08A46; 
 }
 
 .recipe-title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
+    color: #8C6F56; 
     margin: 8px 0;
 }
 
@@ -330,22 +348,22 @@ body {
 }
 
 .recipe-link:hover {
-    color: #f44336;
+    color: #F29C50; 
 }
 
 .category-info {
     font-size: 1rem;
-    color: #555;
+    color: #8C6F56; 
 }
 
 .category-link {
-    color: #f44336;
+    color: #F29C50; 
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .category-link:hover {
-    color: #e53935;
+    color: #E08A46; 
 }
 
 .excerpt-info {
@@ -367,216 +385,270 @@ body {
 }
 
 .back-link {
-    color: #f44336;
+    color: #F29C50; 
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .back-link:hover {
-    color: #e53935;
+    color: #E08A46; 
 }
 
-/* recipies */
+.back-link-category{
+    color: #F29C50; 
+    font-weight: bold;
+    transition: color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+
+
+.back-link-text-category{
+color: #000000;
+font-size: 1.5rem;
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////// */
+
+/* Recipes */
 
 .container {
-    max-width: 800px; 
-    margin: auto; 
-    padding: 20px; 
-    background: linear-gradient(to right, #9f7aea, #ec4899, #f43f5e);
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: linear-gradient(to right, #F29C50, #EBC557); 
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    margin-top: 3rem; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 3rem;
 }
 
 .recipe-card {
-    background: white; 
-    padding: 20px; 
+    background: white;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+
+
 .author-info {
-    font-size: 0.875rem; 
-    color: #d53f8c; 
+    font-size: 0.875rem;
+    color: #8C6F56; 
 }
 
 .author-link {
-    color: #c53030; 
-    font-weight: bold; 
-    text-decoration: none; 
+    color: #F29C50; 
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .author-link:hover {
-    color: #805ad5; 
+    color: #E08A46; 
+}
+
+.author a{
+    color: #8C6F56; 
+}
+
+.author a:hover{
+    color: #000000; 
 }
 
 .recipe-title {
-    font-size: 2.5rem; 
-    font-weight: bold; 
-    color: #6b46c1; 
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #8C6F56; 
+} 
+
+.recipe-title a {
+    color: #8C6F56; 
+}
+
+.recipe-title a:hover{
+    color: black;
+}
+
+.category a{
+    color: #8C6F56; 
+}
+
+.category a:hover{
+    color: #000000; 
 }
 
 .recipe-name {
-    font-size: 2rem; 
-    font-weight: 600; 
+    font-size: 2rem;
+    font-weight: 600;
+    color: #8C6F56; 
 }
 
 .section-title {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     font-weight: 600;
-    color: #6b46c1; 
-    margin-top: 1.5rem; 
+    color: #8C6F56; 
+    margin-top: 1.5rem;
 }
 
 .recipe-excerpt {
-    font-size: 1rem; 
-    color: #4a5568; 
+    font-size: 1rem;
+    color: #555;
 }
 
 .category-link {
-    color: #d53f8c; 
-    font-weight: bold; 
-    text-decoration: none; 
+    color: #F29C50; 
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .category-link:hover {
-    color: #c53030; 
+    color: #E08A46; 
 }
 
 .recipe-body {
-    font-size: 1rem; 
-    color: #2d3748;
-    margin-top: 1rem; 
+    font-size: 1rem;
+    color: #2D3748; 
+    margin-top: 1rem;
 }
 
 .back-link {
-    margin-top: 1.5rem; 
+    margin-top: 1.5rem;
 }
 
 .back-link-text {
-    font-size: 1.125rem; 
-    color: #d53f8c; 
-    font-weight: bold; 
-    text-decoration: none; 
+    font-size: 1.125rem;
+    color: #F29C50; 
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .back-link-text:hover {
-    color: #6b46c1; 
+    color: #E08A46; 
 }
 
-/* recipies */
+/* ///////////////////////////////////////////////////////////////////////////// */
+/* Recipes */
 
 .main {
-    max-width: 800px; 
+    max-width: 800px;
     margin: auto;
     padding: 20px;
+    
 }
 
 .recipes-articles {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .recipe-card {
     padding: 20px;
-    border: 1px solid #e5e7eb; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    background-color: white; 
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 .author,
 .category {
-    font-size: 0.875rem; 
-    color: #6b7280; 
+    font-size: 0.875rem;
+    color: #8C6F56; 
 }
 
 .recipe-title {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     font-weight: 600;
     margin: 10px 0;
+    color: #8C6F56; 
 }
 
 .excerpt {
-    margin: 10px 0; 
+    margin: 10px 0;
+    color: #555;
 }
 
 .image-container {
-    width: 100%; 
-    overflow: hidden; 
-    max-width: 300px; 
+    width: 100%;
+    overflow: hidden;
+    max-width: 300px;
 }
 
 .recipe-image {
-    max-width: 100%; 
-    height: auto; 
+    max-width: 100%;
+    height: auto;
 }
 
 .home-link {
-    text-align: center; 
+    text-align: center;
     margin-top: 20px;
 }
 
 .go-back {
-    text-align: center; 
+    text-align: center;
 }
 
-/* createpage */
+/* Create Page */
 
 .page-title {
-    font-size: 2rem; 
-    font-weight: bold; 
-    margin-bottom: 20px; 
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #8C6F56; 
 }
 
 .recipe-form {
-    max-width: 600px; 
-    margin: auto; 
-    padding: 20px; 
-    background: white; 
-    border-radius: 10px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }
 
 .form-label {
-    display: block; 
-    margin-bottom: 5px; 
-    font-weight: bold; 
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #8C6F56; 
 }
 
 .form-input,
 .form-textarea,
 .form-select {
-    width: 100%; 
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
-    font-size: 1rem; 
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
 }
 
 .form-textarea {
-    height: 100px; 
-    resize: vertical; 
+    height: 100px;
+    resize: vertical;
 }
 
 .submit-button {
-    padding: 10px 15px; 
-    font-size: 1rem; 
-    color: white; 
-    background-color: #6b46c1; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s; 
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: white;
+    background-color: #F29C50; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .submit-button:hover {
-    background-color: #805ad5; 
+    background-color: #E08A46;
 }
-/* nav */
+
+/* Nav */
 
 nav {
     background-color: #ffffff;
@@ -585,9 +657,9 @@ nav {
 
 /* Container */
 .nav-container {
-    max-width: 1120px; 
+    max-width: 1120px;
     margin: 0 auto;
-    padding: 0 1rem; 
+    padding: 0 1rem;
 }
 
 /* Flex and spacing */
@@ -605,7 +677,7 @@ nav {
 .nav-links {
     display: flex;
     gap: 2rem;
-    margin-left: 2.5rem; 
+    margin-left: 2.5rem;
 }
 
 .nav-link {
@@ -617,7 +689,7 @@ nav {
 .user-settings {
     display: flex;
     align-items: center;
-    margin-left: 1.5rem; 
+    margin-left: 1.5rem;
 }
 
 .settings-btn {
@@ -625,21 +697,20 @@ nav {
     align-items: center;
     padding: 0.5rem 0.75rem;
     border: 1px solid transparent;
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
     font-weight: 500;
     border-radius: 0.375rem;
-    color: #6b7280; 
+    color: #8C6F56; 
     background-color: #ffffff;
     transition: color 0.3s ease-in-out;
 }
 
 .settings-btn:hover {
-    color: #4b5563; 
+    color: #4b5563;
 }
 
-
 .hamburger {
-    margin-right: -0.5rem; 
+    margin-right: -0.5rem;
     display: flex;
     align-items: center;
 }
@@ -647,13 +718,13 @@ nav {
 .hamburger-btn {
     padding: 0.5rem;
     border-radius: 0.375rem;
-    color: #9ca3af; 
-    background-color: #f9fafb; 
+    color: #9ca3af;
+    background-color: #f9fafb;
     transition: color 0.3s ease-in-out;
 }
 
 .hamburger-btn:hover {
-    color: #6b7280; 
+    color: #6b7280;
 }
 
 /* Responsive nav link styles */
@@ -667,23 +738,59 @@ nav {
 .responsive-settings {
     padding-top: 1rem;
     padding-bottom: 0.25rem;
-    border-top: 1px solid #e5e7eb; 
+    border-top: 1px solid #e5e7eb;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+   
+    
 }
 
 .user-info {
     font-size: 1rem;
     font-weight: 500;
-    color: #1f2937; 
+    color: #1f2937;
+    display: flex;
+    justify-content: center;
+    
 }
 
 .user-email {
     font-size: 0.875rem;
-    color: #6b7280; 
+    color: #6b7280;
+    display: flex;
+    justify-content: center;
+    
 }
 
-/* admin */
+.nav-links-layout{
+    display: flex;
+    flex-direction: row;
+   justify-content: space-between;
+}
 
+.responsive-nav-link{
+    
+ display: inline-block;
+ padding: 12px 24px;
+ background-color: #F29C50; 
+ color: white;
+ font-weight: bold;
+ border-radius: 8px;
+ transition: background-color 0.3s, transform 0.2s;
+ margin: 20px;
+
+ 
+
+}
+
+
+
+/* /////////////////////////////////////////////////////// */
+
+/* admin */
 
 * {
     margin: 0;
@@ -705,7 +812,7 @@ body {
 .navbar {
     width: 100%;
     padding: 1rem 2rem;
-    background-color: #4f46e5;
+    background-color: #E08A46; 
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -765,7 +872,7 @@ body {
 }
 
 .user-table td a.user-link {
-    color: #4f46e5;
+    color: #8b2929; 
     text-decoration: none;
     font-weight: 500;
 }
@@ -812,8 +919,7 @@ body {
     }
 }
 
-
-/* admin users  */
+/* admin users */
 
 /* Body and navbar */
 body {
@@ -825,20 +931,6 @@ body {
     align-items: center;
 }
 
-.navbar {
-    width: 100%;
-    padding: 1rem 2rem;
-    background-color: #4f46e5;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
 
 .back-link {
     color: #fff;
@@ -907,7 +999,7 @@ body {
 
 /* Button styling */
 .save-btn {
-    background-color: #4f46e5;
+    background-color: #be8f0d; 
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -918,7 +1010,7 @@ body {
 }
 
 .save-btn:hover {
-    background-color: #4338ca;
+    background-color: #805ad5; 
 }
 
 /* Responsive adjustments */

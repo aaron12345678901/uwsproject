@@ -9,6 +9,9 @@
     <!-- Link to the app's CSS file for styling -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
+
+
+
 <body class="bg-gradient"> <!-- Body with background gradient for aesthetic effect -->
     <div class="login-wrapper"> <!-- Wrapper to center the login content on the page -->
         <div class="login-container"> <!-- Container for the login form and related content -->
@@ -37,10 +40,10 @@
                 </div>
             </form>
 
-            <!-- Link to registration page for users who don't have an account -->
+            {{-- <!-- Link to registration page for users who don't have an account -->
             <div class="register-link">
                 <p>Don't have an account? <a href="{{ route('register') }}">Register</a></p>
-            </div>
+            </div> --}}
         </div>
     </div>
 </body>

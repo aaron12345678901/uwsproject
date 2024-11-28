@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="nav">
+{{-- <nav x-data="{ open: false }" class="nav">
     <div class="nav-container">
         <div class="nav-content">
             <div class="nav-left">
@@ -8,13 +8,10 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="nav-links">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="nav-link">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+              
+              
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Settings Dropdown -->
             <div class="user-settings">
@@ -45,31 +42,20 @@
                 @endif
             </div>
 
-            <!-- Hamburger -->
-            <div class="hamburger">
-                <button @click="open = ! open" class="hamburger-btn">
-                    <svg class="icon" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
+         
         </div>
     </div>
 
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="responsive-nav">
-        <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-            {{ __('Dashboard') }}
-        </x-responsive-nav-link>
-    </div>
+  
 
     <!-- Responsive Settings Options -->
     @if (Auth::check())
         <div class="responsive-settings">
-            <div class="user-info">{{ Auth::user()->name }}</div>
-            <div class="user-email">{{ Auth::user()->email }}</div>
+            <div class="user-info"><p>Username: </p>{{ Auth::user()->name }}</div>
+            <div class="user-email"><p>Email: </p>{{ Auth::user()->email }}</div>
 
+
+            <div class="nav-links-layout">
             <x-responsive-nav-link :href="route('profile.edit')" class="responsive-nav-link">
                 {{ __('Profile') }}
             </x-responsive-nav-link>
@@ -81,6 +67,7 @@
                     {{ __('Log Out') }}
                 </x-responsive-nav-link>
             </form>
+            </div>
         </div>
     @endif
 </nav>

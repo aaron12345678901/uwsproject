@@ -15,18 +15,26 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"> 
 </head>
 <body>
+
+             <!-- Header Section -->
+  <header class="header-main">
+    <div class="logo">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo of Recipe Site"> 
+    </div>
+    <h1>Recipe</h1> 
+</header>
+
     <div class="bg-gradient"> 
-        <div class="min-h-screen flex flex-col justify-center items-center pt-6 sm:pt-0">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+        
+        <h1 class="title">Welcome Back!</h1>
+        <p class="subtitle">Please log in to your account.</p>
+ 
 
             <div class="login-container"> 
                 {{ $slot }} 
-            </div>
-        </div>
+             </div>
+
+       
     </div>
 </body>
 </html>

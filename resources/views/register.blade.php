@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body class="antialiased"> <!-- Apply antialiasing for smoother fonts -->
+
     <div class="flex flex-col items-center justify-center min-h-screen py-6 bg-gray-100"> <!-- Centered, full-height container with background color -->
 
         <!-- Header for Registration -->

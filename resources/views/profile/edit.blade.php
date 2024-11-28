@@ -1,3 +1,11 @@
+<header class="header-main">
+    <div class="logo">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo of Recipe Site"> 
+    </div>
+    <h1>Recipe</h1> 
+</header>
+
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">

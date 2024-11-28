@@ -3,11 +3,31 @@
 <!-- Link to external CSS file for styling -->
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+<header class="header-main">
+    <div class="logo">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo of Recipe Site"> 
+    </div>
+    <h1>Recipe</h1> 
+</header>
+
+
+
 @section('content') <!-- Begin the content section -->
 
 <div class="container"> <!-- Main container for the recipe card content -->
     <article class="recipe-card"> <!-- Recipe card styling for visual appeal -->
         
+
+        <div class="image-container"> 
+            @if ($recipe->image)
+                <!-- Display the recipe image, fallback to default logo if image fails to load -->
+                <img src="{{ asset('storage/' . $recipe->image) }}" alt="{{ $recipe->title }}" class="recipe-image" onerror="this.onerror=null; this.src='{{ asset('images/logo.png') }}';">
+            @else
+                <img src="{{ asset('images/logo.png') }}" alt="Fallback logo" class="recipe-image"> <!-- Default image if none is provided -->
+            @endif
+        </div>
+
+
         {{-- Author Information --}}
         <p class="author-info">Author: 
             <a href="/authors/{{ $recipe->author->id }}" class="author-link">
@@ -39,7 +59,7 @@
 
         {{-- Back Link --}}
         <div class="back-link">
-            <a href="/" class="back-link-text">
+            <a href="{{ url()->previous() }}" class="back-link-text">
                 ← Go back <!-- Link to return to the homepage -->
             </a>
         </div>

@@ -1,8 +1,18 @@
 <x-app-layout>
-    <!-- Header slot to define the dashboard title in the layout -->
-    <x-slot name="header">
-        <h2 class="title">{{ __('Dashboard') }}</h2>
-    </x-slot>
+  <!-- Header Section -->
+  <header class="header-main">
+    <div class="logo">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo of Recipe Site"> 
+    </div>
+    <h1>Recipe</h1> 
+</header>
+
+<div class="back-link-category">
+    <a href="/" class="back-link-text-category">
+        Home
+    </a>
+</div>
+
 
     <div class="dashboard-container">
         <div class="dashboard-content">

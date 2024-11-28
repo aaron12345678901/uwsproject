@@ -3,6 +3,20 @@
 <!-- Link to the CSS file for custom styling -->
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+  <!-- Header Section -->
+  <header class="header-main">
+    <div class="logo">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo of Recipe Site"> 
+    </div>
+    <h1>Recipe</h1> 
+</header>
+
+<div class="back-link-category">
+    <a href="{{ url()->previous() }}" class="back-link-text-category">
+        ← Go back 
+    </a>
+</div>
+
 @section('content') <!-- Begin the content section -->
 
 <div class="main"> <!-- Main container for listing all recipes -->
@@ -10,12 +24,23 @@
     <div class="recipes-articles"> <!-- Wrapper for each recipe article -->
         <article class="recipe-card"> <!-- Card styling for each individual recipe -->
 
+
+              {{-- Recipe Image --}}
+              <div class="image-container"> 
+                @if ($recipe->image)
+                    <!-- Display the recipe image, fallback to default logo if image fails to load -->
+                    <img src="{{ asset('storage/' . $recipe->image) }}" alt="{{ $recipe->title }}" class="recipe-image" onerror="this.onerror=null; this.src='{{ asset('images/logo.png') }}';">
+                @else
+                    <img src="{{ asset('images/logo.png') }}" alt="Fallback logo" class="recipe-image"> <!-- Default image if none is provided -->
+                @endif
+            </div>
+
             {{-- Author Information --}}
-            <p class="author">Author by 
+            <p class="author">Author by
                 <a href="/authors/{{ $recipe->author->id }}">{{ $recipe->author->name }}</a>
             </p>
 
-            {{-- Recipe Title --}}
+           
             <h1 class="recipe-title">
                 Title: 
                 <a href="/recipes/{{ $recipe->id }}">{{ $recipe->title }}</a> <!-- Link to the recipe's detailed page -->
@@ -33,27 +58,17 @@
                 <p>{{ $recipe->excerpt }}</p> <!-- Short description or summary of the recipe -->
             </div>
 
-            {{-- Recipe Image --}}
-            <div class="image-container"> 
-                @if ($recipe->image)
-                    <!-- Display the recipe image, fallback to default logo if image fails to load -->
-                    <img src="{{ asset('storage/' . $recipe->image) }}" alt="{{ $recipe->title }}" class="recipe-image" onerror="this.onerror=null; this.src='{{ asset('images/logo.png') }}';">
-                @else
-                    <img src="{{ asset('images/logo.png') }}" alt="Fallback logo" class="recipe-image"> <!-- Default image if none is provided -->
-                @endif
-            </div>
+         
             
         </article>
     </div>
     @endforeach
 
-    
-    <h1 class="home-link">
-        <a href="/">Home</a>
-    </h1>
-
-   
-    <p class="go-back">Go back</p>
+    <div class="back-link-category">
+        <a href="{{ url()->previous() }}" class="back-link-text-category">
+            ← Go back 
+        </a>
+    </div>
 </div>
 
 @endsection <!-- End the content section -->

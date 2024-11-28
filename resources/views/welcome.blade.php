@@ -19,6 +19,16 @@
         <h1>Recipe</h1> 
     </header>
 
+     <!-- Action Buttons Section -->
+     <div class="action-buttons">
+        <a href="{{ route('login') }}" class="button button-login">Log In</a> 
+        <a href="{{ route('register') }}" class="button button-register">Register</a> 
+    </div>
+
+    <div class="normal-user-button">
+        <a href="{{ route('public_dashboard') }}" class="button">Enter to View Recipes</a>
+    </div>
+
     <!-- Welcome Text Section -->
     <main class="welcome-text">
         <h1>Welcome</h1> 
@@ -31,15 +41,6 @@
         </p> 
     </main>
 
-    <!-- Action Buttons Section -->
-    <div class="action-buttons">
-        <a href="{{ route('login') }}" class="button button-login">Log In</a> 
-        <a href="{{ route('register') }}" class="button button-register">Register</a> 
-    </div>
-
-    <div class="normal-user-button">
-        <a href="{{ route('public_dashboard') }}" class="button">Enter to View Recipes</a>
-    </div>
-
+  
 </body>
 </html>
