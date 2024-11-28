@@ -412,6 +412,136 @@ font-size: 1.5rem;
 }
 
 
+
+/* Profile page */
+
+.profile-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: #000000 2px solid;
+    background-color:  rgba(242, 226, 206, 0.9);
+    border-radius: 5%;
+}
+
+.update-username{
+margin-top: 20px;
+width: 50%;
+}
+
+.update-password{
+
+width: 50%;
+}
+
+.delete-account{
+width: 50%;
+}
+
+
+/* partialsupdateprofile */
+
+.name-field{
+    display: flex;
+    margin-top: 10px;
+}
+
+.name-field label{
+    margin-right: 20px;
+}
+
+
+
+.email-field{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.email-field label{
+    margin-right: 20px;
+}
+
+.name-button{
+    margin-bottom: 20px;
+}
+
+/* partialsupdatepassword */
+
+.current-password{
+    display: flex;
+    margin-top: 10px;
+}
+
+.current-password label{
+    margin-right: 20px;
+}
+
+.new-password{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.new-password label{
+    margin-right: 40px;
+}
+
+.conf-password{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.conf-password label{
+    margin-right: 20px;
+}
+
+.pass-button{
+    margin-bottom: 20px;
+}
+
+.del-button{
+    margin: 20px;
+}
+
+
+.recipe-wraps{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 3fr));
+    gap: 20px;
+    width: 90%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.profile-recipe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.edit-btn {
+    background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+    margin-top: 10px;
+}
+
+
+
+/* //////////////////////////////////////////// */
+
 /* ///////////////////////////////////////////////////////////////////////////// */
 
 /* Recipes */
@@ -997,6 +1127,14 @@ body {
     min-height: 80px;
 }
 
+.admin-buttons{
+    
+    display: flex;
+   
+   
+}
+
+
 /* Button styling */
 .save-btn {
     background-color: #be8f0d; 
@@ -1007,11 +1145,30 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
     transition: background-color 0.3s;
+    margin: 20px;
 }
 
 .save-btn:hover {
-    background-color: #805ad5; 
+    background-color: #0bd41c; 
 }
+
+.delete-btn-admin{
+    background-color: #b43535; 
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+    margin: 20px;
+}
+
+.delete-btn-admin:hover{
+    background-color: #ff0101;
+}
+
+
 
 /* Responsive adjustments */
 @media (max-width: 600px) {

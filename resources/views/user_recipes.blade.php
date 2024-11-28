@@ -32,42 +32,39 @@
             <tbody>
                 <!-- Loop through each recipe -->
                 @forelse ($recipes as $recipe)
-                    <tr>
-                        <!-- Recipe Title -->
-                        <td>{{ $recipe->title }}</td>
-                        
-                        <!-- Category Selector -->
-                        <td>
-                            <form action="{{ route('admin.recipes.update', $recipe) }}" method="POST"> <!-- Form to update recipe -->
-                                @csrf <!-- CSRF protection -->
-                                @method('PUT') <!-- Specify method as PUT for update -->
-                                <select name="category_id" class="category-select"> <!-- Dropdown for categories -->
-                                    @foreach($categories as $category)
-                                        <option value="{{ $category->id }}" {{ $recipe->category_id == $category->id ? 'selected' : '' }}>
-                                            {{ $category->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                        </td>
+                <tr>
+                    <td>{{ $recipe->title }}</td>
+                    <td>
+                        <form action="{{ route('admin.recipes.update', $recipe) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <select name="category_id" class="category-select">
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" {{ $recipe->category_id == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                    </td>
+                    <td><input type="text" name="excerpt" value="{{ $recipe->excerpt }}" class="input-field"></td>
+                    <td><textarea name="body" class="textarea-field">{{ $recipe->body }}</textarea></td>
 
-                        <!-- Excerpt Field -->
-                        <td><input type="text" name="excerpt" value="{{ $recipe->excerpt }}" class="input-field"></td>
+                    <td class="admin-buttons">
+                        <button type="submit" class="save-btn">Save</button>
+                        </form>
+                        <form action="{{ route('admin.recipes.destroy', $recipe) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this recipe?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-btn-admin">Delete</button>
+                        </form>
+                    </td>
 
-                        <!-- Body Field -->
-                        <td><textarea name="body" class="textarea-field">{{ $recipe->body }}</textarea></td>
-
-                        <!-- Save Button -->
-                        <td>
-                                <button type="submit" class="save-btn">Save</button> <!-- Button to submit form -->
-                            </form>
-                        </td>
-                    </tr>
-                @empty
-                    <!-- Display if no recipes found -->
-                    <tr>
-                        <td colspan="5" class="no-recipes">No recipes found for this user.</td>
-                    </tr>
-                @endforelse
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="5" class="no-recipes">No recipes found for this user.</td>
+                </tr>
+            @endforelse
             </tbody>
         </table>
     </section>

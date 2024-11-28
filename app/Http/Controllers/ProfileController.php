@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Recipe;
 
 class ProfileController extends Controller
 {
@@ -16,10 +17,16 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        // Get the authenticated user
+        $user = $request->user();
+        
+        // Get all recipes for the authenticated user
+        $recipes = Recipe::where('user_id', $user->id)->get();
+
+        // Pass the user and recipes to the view
+        return view('profile.edit', compact('user', 'recipes'));
     }
+
 
     /**
      * Update the user's profile information.
@@ -67,4 +74,8 @@ class ProfileController extends Controller
         // Redirect to the home page
         return Redirect::to('/');
     }
+
+
+
+    
 }

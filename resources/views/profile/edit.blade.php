@@ -1,10 +1,9 @@
 <header class="header-main">
     <div class="logo">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo of Recipe Site"> 
+        <img src="{{ asset('images/logo.png') }}" alt="Logo of Recipe Site">
     </div>
-    <h1>Recipe</h1> 
+    <h1>Recipe</h1>
 </header>
-
 
 <x-app-layout>
     <x-slot name="header">
@@ -13,25 +12,41 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+    <div class="profile-body">
+       
+            <div class="update-username">
                     @include('profile.partials.update-profile-information-form')
-                </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+            <div class="update-password">
+               
                     @include('profile.partials.update-password-form')
-                </div>
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
+            <div class="delete-account">
                     @include('profile.partials.delete-user-form')
-                </div>
             </div>
-        </div>
+
+
+
+
+            <h1>Your Recipes</h1>
+
+
+            <!-- Recipes Section -->
+
+<div class="recipe-wraps">
+            @foreach($recipes as $recipe)
+            <div class="profile-recipe">
+                <h2>Title</h2>
+                <h4>{{ $recipe->title }}</h4>
+                <h3>excerpt</h3>
+                <p>{{ $recipe->excerpt }}</p>
+                <a href="{{ route('recipes.edit', $recipe->id) }}" class="edit-btn">Edit</a>
+            </div>
+        @endforeach
+</div>
+
+        
     </div>
 </x-app-layout>

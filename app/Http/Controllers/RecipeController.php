@@ -47,4 +47,46 @@ class RecipeController extends Controller
         // Redirect back to the dashboard with a success message
         return redirect()->route('dashboard')->with('success', 'Recipe added successfully!');
     }
+
+
+
+
+
+
+
+    public function edit(Recipe $recipe)
+    {
+        // Ensure the recipe belongs to the authenticated user
+        if ($recipe->user_id !== auth()->id()) {
+            abort(403);
+        }
+
+        return view('recipes.edit', compact('recipe'));
+    }
+
+    /**
+     * Update the specified recipe in storage.
+     */
+    public function update(Request $request, Recipe $recipe)
+    {
+        // Ensure the recipe belongs to the authenticated user
+        if ($recipe->user_id !== auth()->id()) {
+            abort(403);  // Forbidden if the recipe doesn't belong to the current user
+        }
+    
+        // Validate the data
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
+        ]);
+    
+        // Update the recipe
+        $recipe->update($request->only('title', 'body'));
+    
+        // Redirect back to the profile edit page with a success message
+        return redirect()->route('profile.edit')
+            ->with('status', 'Recipe updated successfully!');
+    }
+
+    
 }

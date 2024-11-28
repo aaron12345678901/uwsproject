@@ -84,3 +84,29 @@ Route::get('/public-dashboard', function () {
     $recipes = Recipe::latest()->with('category', 'author')->get();
     return view('public-dashboard', ['recipes' => $recipes]);
 })->name('public_dashboard');
+
+//Route for admin to delete single recipe
+Route::delete('/admin/recipes/{recipe}', [AdminController::class, 'destroyRecipe'])->name('admin.recipes.destroy');
+
+
+
+
+
+
+// Route to edit a specific recipe
+Route::get('/recipes/{recipe}/edit', [RecipeController::class, 'edit'])->middleware('auth')->name('recipes.edit');
+
+// Route to update a recipe
+Route::put('/recipes/{recipe}', [RecipeController::class, 'update'])->middleware('auth')->name('recipes.update');
+
+// Route to delete a specific recipe
+Route::delete('/recipes/{recipe}', [RecipeController::class, 'destroy'])->middleware('auth')->name('recipes.destroy');
+
+/////////////////////
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/recipes/{recipe}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
+    Route::put('/recipes/{recipe}', [RecipeController::class, 'update'])->name('recipes.update');
+});

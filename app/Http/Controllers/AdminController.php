@@ -59,4 +59,14 @@ class AdminController extends Controller
         return redirect()->route('admin.users.recipes', $recipe->author)
             ->with('status', 'Recipe updated successfully.');
     }
+
+// delete single recipe
+    public function destroyRecipe(Recipe $recipe)
+{
+    
+    $recipe->delete();
+
+    
+    return redirect()->back()->with('success', 'Recipe deleted successfully.');
+}
 }
