@@ -2,6 +2,16 @@
 <!-- Link to the CSS stylesheet for styling this page -->
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+
+ <!-- Header Section -->
+ <header class="header-main">
+    <div class="logo">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo of Recipe Site"> 
+    </div>
+    <h1>Recipe</h1> 
+</header>
+
+
 @section('content')
     <!-- Page title for the recipe creation form -->
     <h1 class="page-title">Create a New Recipe</h1>

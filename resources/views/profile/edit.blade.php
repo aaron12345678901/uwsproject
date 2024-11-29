@@ -40,7 +40,7 @@
             <div class="profile-recipe">
                 <h2>Title</h2>
                 <h4>{{ $recipe->title }}</h4>
-                <h3>excerpt</h3>
+                <h3>Recipe</h3>
                 <p>{{ $recipe->excerpt }}</p>
                 <a href="{{ route('recipes.edit', $recipe->id) }}" class="edit-btn">Edit</a>
             </div>

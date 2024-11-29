@@ -16,6 +16,22 @@
         <h2 class="title">{{ __("Welcome Let's Share Some Recipes") }}</h2>
     </x-slot>
 
+
+   {{-- Add search bar here --}}
+<div class="search-bar-container">
+    <form action="{{ route('dashboard') }}" method="GET" class="search-form">
+        <input 
+            type="text" 
+            name="search" 
+            value="{{ request('search') }}" 
+            placeholder="Search recipes by title..." 
+            class="search-input"
+        />
+        <button type="submit" class="search-button">Search</button>
+    </form>
+</div>
+    
+
     <div class="dashboard-container">
         <div class="dashboard-content">
 

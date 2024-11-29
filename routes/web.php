@@ -16,8 +16,14 @@ Route::get('/', function () {
 // Route for the dashboard page, retrieving the latest recipes with their category and author
 // Only accessible to authenticated and verified users
 Route::get('/dashboard', function () {
-    $recipes = Recipe::latest()->with('category', 'author')->get();
-    return view('dashboard', ['recipes' => $recipes]);
+    $search = request('search'); // Retrieve the search query parameter
+    $recipes = Recipe::latest()
+        ->with('category', 'author')
+        ->when($search, function ($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%');
+        })
+        ->get();
+    return view('dashboard', ['recipes' => $recipes, 'search' => $search]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Group of routes that require user authentication
@@ -78,35 +84,26 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/admin/recipes/{recipe}', [AdminController::class, 'updateRecipe'])->name('admin.recipes.update');
 });
 
-
 // Route to the 'public-dashboard' page for unauthenticated users to view basic content
 Route::get('/public-dashboard', function () {
-    $recipes = Recipe::latest()->with('category', 'author')->get();
+    $search = request('search');
+    $recipes = Recipe::latest()
+        ->with('category', 'author')
+        ->when($search, function ($query) use ($search) {
+            $query->where('title', 'like', "%{$search}%");
+        })
+        ->get();
     return view('public-dashboard', ['recipes' => $recipes]);
 })->name('public_dashboard');
 
-//Route for admin to delete single recipe
+// Route for admin to delete a single recipe
 Route::delete('/admin/recipes/{recipe}', [AdminController::class, 'destroyRecipe'])->name('admin.recipes.destroy');
 
-
-
-
-
-
-// Route to edit a specific recipe
-Route::get('/recipes/{recipe}/edit', [RecipeController::class, 'edit'])->middleware('auth')->name('recipes.edit');
-
-// Route to update a recipe
-Route::put('/recipes/{recipe}', [RecipeController::class, 'update'])->middleware('auth')->name('recipes.update');
-
-// Route to delete a specific recipe
-Route::delete('/recipes/{recipe}', [RecipeController::class, 'destroy'])->middleware('auth')->name('recipes.destroy');
-
-/////////////////////
-
-
-
+// Routes for editing and updating recipes
 Route::middleware(['auth'])->group(function () {
     Route::get('/recipes/{recipe}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
     Route::put('/recipes/{recipe}', [RecipeController::class, 'update'])->name('recipes.update');
 });
+
+// Route to delete a specific recipe
+Route::delete('/recipes/{recipe}', [RecipeController::class, 'destroy'])->middleware('auth')->name('recipes.destroy');
