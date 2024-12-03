@@ -13,7 +13,8 @@
 
     
     <x-slot name="header">
-        <h2 class="title">{{ __("Welcome Let's Share Some Recipes") }}</h2>
+        <h2 class="title">{{ __("Welcome! ") }}</h2>
+        <h2 class="title">{{ __(" Let's Share Some Recipes") }}</h2>
     </x-slot>
 
 
