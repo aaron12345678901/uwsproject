@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <!-- Set character encoding and viewport settings for mobile responsiveness -->
+  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
     
-    <!-- Link to the app's CSS file for styling -->
+ 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 
 
-<body class="bg-gradient"> <!-- Body with background gradient for aesthetic effect -->
-    <div class="login-wrapper"> <!-- Wrapper to center the login content on the page -->
-        <div class="login-container"> <!-- Container for the login form and related content -->
+<body class="bg-gradient"> 
+    <div class="login-wrapper"> 
+        <div class="login-container"> 
             <h1 class="title">Welcome Back!</h1>
             <p class="subtitle">Please log in to your account.</p>
 

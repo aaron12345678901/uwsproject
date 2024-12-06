@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> <!-- Set character encoding -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Make layout responsive -->
-    <title>{{ $user->name }}'s Recipes</title> <!-- Dynamic title with user's name -->
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>{{ $user->name }}'s Recipes</title> 
 
-    <!-- Link to compiled CSS file -->
+  
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
 
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <h1>Recipes by {{ $user->name }}</h1> <!-- Display user's name -->
+        <h1>Recipes by {{ $user->name }}</h1> 
         <a href="{{ route('admin.dashboard') }}" class="back-link">Back to Admin Dashboard</a> <!-- Link to admin dashboard -->
     </nav>
 

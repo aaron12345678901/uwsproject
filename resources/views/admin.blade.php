@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Set character encoding for the document -->
+   
     <meta charset="UTF-8">
     
-    <!-- Set the viewport for responsive design on different devices -->
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Set the page title -->
+   
     <title>Admin Dashboard</title>
     
-    <!-- Link to the CSS stylesheet for styling the page -->
+  
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
     <!-- Navigation bar at the top of the page -->
     <nav class="navbar">
-        <!-- Display the page title -->
+      
         <h1>Admin Dashboard</h1>
         
         <!-- Logout form for signing out -->

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> <!-- Set language dynamically based on locale -->
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> 
 <head>
-    <meta charset="utf-8"> <!-- Character encoding for Unicode -->
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Responsive view settings -->
-    <title>Register</title> <!-- Page title -->
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Register</title> 
 
-    <!-- Link to compiled CSS file using Laravel Mix -->
+ 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
-<body class="antialiased"> <!-- Apply antialiasing for smoother fonts -->
+<body class="antialiased"> 
 
-    <div class="flex flex-col items-center justify-center min-h-screen py-6 bg-gray-100"> <!-- Centered, full-height container with background color -->
+    <div class="flex flex-col items-center justify-center min-h-screen py-6 bg-gray-100"> 
 
-        <!-- Header for Registration -->
+      
         <div>
-            <h1 class="text-4xl font-bold text-gray-800">Register</h1> <!-- Main title for the page -->
+            <h1 class="text-4xl font-bold text-gray-800">Register</h1> 
         </div>
 
         <!-- Registration Form -->

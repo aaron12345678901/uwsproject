@@ -1,6 +1,6 @@
-@extends('layout') <!-- Extends the main layout of the application -->
+@extends('layout') 
 
-<!-- Link to external CSS file for styling -->
+
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 <header class="header-main">
@@ -12,10 +12,10 @@
 
 
 
-@section('content') <!-- Begin the content section -->
+@section('content') 
 
 <div class="container"> <!-- Main container for the recipe card content -->
-    <article class="recipe-card"> <!-- Recipe card styling for visual appeal -->
+    <article class="recipe-card"> 
         
 
         <div class="image-container"> 
@@ -38,7 +38,7 @@
         {{-- Recipe Title --}}
         <h1 class="recipe-title">Recipe Title</h1>
         <h2 class="recipe-name">
-            {!! $recipe->title !!} <!-- Display recipe title, allowing for any HTML content -->
+            {!! $recipe->title !!} 
         </h2>
 
         {{-- Recipe Excerpt --}}
@@ -55,7 +55,7 @@
 
         {{-- Recipe Body --}}
         <h3 class="section-title">Recipe Details</h3>
-        <div class="recipe-body">{!! $recipe->body !!}</div> <!-- Display full recipe details, allowing HTML content -->
+        <div class="recipe-body">{!! $recipe->body !!}</div> 
 
         {{-- Back Link --}}
         <div class="back-link">
@@ -67,4 +67,4 @@
     </article>
 </div>
 
-@endsection <!-- End the content section -->
+@endsection 

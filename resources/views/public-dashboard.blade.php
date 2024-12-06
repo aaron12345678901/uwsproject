@@ -35,7 +35,7 @@
                 <p class="recipes-subtitle">Discover the newest additions below</p>
             </div>
 
-            <!-- Grid layout for displaying recipe cards -->
+            
             <div class="recipes-grid">
                 @forelse ($recipes as $recipe)
                     <div class="recipe-card">

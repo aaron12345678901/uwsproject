@@ -1,6 +1,6 @@
-@extends('layout') <!-- Extend the main layout of the application -->
+@extends('layout') 
 
-<!-- Link to the CSS file for custom styling -->
+
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
   <!-- Header Section -->
@@ -17,12 +17,12 @@
     </a>
 </div>
 
-@section('content') <!-- Begin the content section -->
+@section('content') 
 
 <div class="main"> <!-- Main container for listing all recipes -->
     @foreach ($recipes as $recipe) <!-- Loop through each recipe -->
-    <div class="recipes-articles"> <!-- Wrapper for each recipe article -->
-        <article class="recipe-card"> <!-- Card styling for each individual recipe -->
+    <div class="recipes-articles"> 
+        <article class="recipe-card"> 
 
 
               {{-- Recipe Image --}}
@@ -31,7 +31,7 @@
                     <!-- Display the recipe image, fallback to default logo if image fails to load -->
                     <img src="{{ asset('storage/' . $recipe->image) }}" alt="{{ $recipe->title }}" class="recipe-image" onerror="this.onerror=null; this.src='{{ asset('images/logo.png') }}';">
                 @else
-                    <img src="{{ asset('images/logo.png') }}" alt="Fallback logo" class="recipe-image"> <!-- Default image if none is provided -->
+                    <img src="{{ asset('images/logo.png') }}" alt="Fallback logo" class="recipe-image"> 
                 @endif
             </div>
 
@@ -55,7 +55,7 @@
             {{-- Excerpt --}}
             <div class="excerpt">
                 <p>Excerpt:</p>
-                <p>{{ $recipe->excerpt }}</p> <!-- Short description or summary of the recipe -->
+                <p>{{ $recipe->excerpt }}</p> 
             </div>
 
          
@@ -71,4 +71,4 @@
     </div>
 </div>
 
-@endsection <!-- End the content section -->
+@endsection 

@@ -10,7 +10,7 @@ class Recipe extends Model
     use HasFactory;
 
     // Allow all attributes to be mass assignable
-    protected $guarded = [];
+    // protected $guarded = [];
 
     // Specify which attributes can be mass assigned
     protected $fillable = ['title', 'excerpt', 'body', 'image', 'category_id', 'user_id'];

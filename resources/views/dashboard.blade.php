@@ -18,7 +18,7 @@
     </x-slot>
 
 
-   {{-- Add search bar here --}}
+
 <div class="search-bar-container">
     <form action="{{ route('dashboard') }}" method="GET" class="search-form">
         <input 

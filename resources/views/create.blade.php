@@ -1,5 +1,5 @@
 @extends('layout')
-<!-- Link to the CSS stylesheet for styling this page -->
+
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 
